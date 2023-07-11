@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:manage_moyen/pages/finance_balance.dart';
 import 'package:manage_moyen/pages/get_started.dart';
 
 void main() {
@@ -16,7 +17,10 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const GetStartedPage(),
+      routes: {
+        "/" :(context) => const GetStartedPage(),
+        "/balance" :(context) =>  FinanceBalance()
+      },
     );
   }
 }

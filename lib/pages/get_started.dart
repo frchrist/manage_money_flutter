@@ -12,20 +12,24 @@ class GetStartedPage extends StatelessWidget {
         child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                height: 300,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  gradient: kBoxLinearGradient,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(20),
-                    bottomRight: Radius.circular(20),
+              Stack(
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: 350,
+                    decoration: const BoxDecoration(
+                        image: DecorationImage(
+                            image: AssetImage("assets/images/home_bg.png"),
+                            fit: BoxFit.fill)),
                   ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 40, bottom: 50),
-                  child: Image.asset("assets/images/pana.png"),
-                ),
+                  const Positioned(
+                      width: 300,
+                      top: 25,
+                      right: 40,
+                      child: Image(
+                        image: AssetImage("assets/images/pana.png"),
+                      ))
+                ],
               ),
               const Padding(
                 padding: EdgeInsets.all(20.0),
@@ -61,22 +65,53 @@ class GetStartedPage extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.only(bottom: 30),
-                child: Container(
-                  padding:const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-                  decoration: BoxDecoration(
-                    gradient: kBoxLinearGradient,
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  child: const Text(
-                    "Get Started",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context, "/balance");
+                  },
+                  child: Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                    decoration: BoxDecoration(
+                      gradient: kBoxLinearGradient,
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    child: const Text(
+                      "Get Started",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                      ),
                     ),
                   ),
                 ),
               )
             ]),
+      ),
+    );
+  }
+}
+
+class HeroSection extends StatelessWidget {
+  const HeroSection({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: 300,
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        gradient: kBoxLinearGradient,
+        borderRadius: BorderRadius.only(
+          bottomLeft: Radius.circular(20),
+          bottomRight: Radius.circular(20),
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.only(top: 40, bottom: 50),
+        child: Image.asset("assets/images/pana.png"),
       ),
     );
   }
